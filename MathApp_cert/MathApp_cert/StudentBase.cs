@@ -19,15 +19,75 @@
 
         public abstract void AddGrade(float grade);
 
-        public abstract void AddGrade(string grade);
+        public virtual void AddGrade(string grade)
+        {
 
-        public abstract void AddGrade(char grade);
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                if (grade.Length == 1)
+                {
+                    AddGrade((char)grade[0]);
+                }
+                else
+                {
+                    throw new Exception("String is not float");
+                }
 
-        public abstract void AddGrade(double grade);
 
-        public abstract void AddGrade(long grade);
+            }
 
-        public abstract void AddGrade(decimal grade);
+        }
+
+        public virtual void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    AddGrade(100f);
+                    break;
+                case 'B':
+                case 'b':
+                    AddGrade(80f);
+                    break;
+                case 'C':
+                case 'c':
+                    AddGrade(60f);
+                    break;
+                case 'D':
+                case 'd':
+                    AddGrade(40f);
+                    break;
+                case 'E':
+                case 'e':
+                    AddGrade(20f);
+                    break;
+                default:
+                    throw new Exception("Wrong Letter");
+            }
+        }
+
+        public virtual void AddGrade(double grade)
+        {
+            var value = (float)grade;
+            this.AddGrade(value);
+        }
+
+        public virtual void AddGrade(long grade)
+        {
+            var value = (float)grade;
+            this.AddGrade(value);
+        }
+
+        public virtual void AddGrade(decimal grade)
+        {
+            var value = (float)grade;
+            this.AddGrade(value);
+        }
 
         public abstract Statistics GetStatistics();
     }
