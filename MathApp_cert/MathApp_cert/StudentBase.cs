@@ -2,7 +2,7 @@
 {
     public abstract class StudentBase : IStudent
     {
-        public static string version = "2024_06_24";
+        public static string version = "2024_06_25";
 
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
@@ -19,7 +19,7 @@
 
         public abstract void AddGrade(float grade);
 
-        public virtual void AddGrade(string grade)
+        public void AddGrade(string grade)
         {
 
             if (float.TryParse(grade, out float result))
@@ -42,7 +42,7 @@
 
         }
 
-        public virtual void AddGrade(char grade)
+        public void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -71,19 +71,19 @@
             }
         }
 
-        public virtual void AddGrade(double grade)
+        public void AddGrade(double grade)
         {
             var value = (float)grade;
             this.AddGrade(value);
         }
 
-        public virtual void AddGrade(long grade)
+        public void AddGrade(long grade)
         {
             var value = (float)grade;
             this.AddGrade(value);
         }
 
-        public virtual void AddGrade(decimal grade)
+        public void AddGrade(decimal grade)
         {
             var value = (float)grade;
             this.AddGrade(value);

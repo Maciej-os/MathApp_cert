@@ -29,35 +29,7 @@
             }
 
         }
-
-        public override void AddGrade(string grade)
-        {
-            base.AddGrade(grade);
-        }
-
-   
-
-        public override void AddGrade(char grade)
-        {
-            base.AddGrade(grade);
-        }
-
-      
-
-        public override void AddGrade(double grade)
-        {
-            base.AddGrade(grade);
-        }
-
-        public override void AddGrade(long grade)
-        {
-            base.AddGrade(grade);
-        }
-        public override void AddGrade(decimal grade)
-        {
-            base.AddGrade(grade);
-        }
-
+             
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
